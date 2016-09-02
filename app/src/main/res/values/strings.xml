@@ -1,0 +1,41 @@
+<resources>
+    <!--Navigation bar-->
+    <string name="nav_gowise">Gowise</string>
+    <string name="nav_settings">Settings</string>
+    <string name="nav_sign_in">Sign in</string>
+    <string name="nav_sign_out">Sign out</string>
+
+
+    <!--Bottom bar-->
+    <string name="tab_home">Home</string>
+    <string name="tab_forecast">Forecast</string>
+    <string name="tab_warning">Warning</string>
+    <string name="tab_information">Other info</string>
+    <string name="tab_service">Service</string>
+
+    <!--Action bar-->
+    <string name="action_setting">Settings</string>
+
+    <string name="app_name">AppDemo</string>
+    <string name="welcome_msg">Welcome!</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="sign_in">Sign In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="start_btn">Start</string>
+    <string name="setting_btn">Setting</string>
+    <string name="sign_in_btn">Sign in</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title">Hong Kong Observatory</string>
+    <string name="hello">A herd of mares left Austria in October 1942. The herd made the 350-mile trip northwest from Piber to Hostau, Czechoslovakia, without incident, and were settled into the Third Reich’s most sheltered stud farm, located in Bohemia, just a few miles from the Bavarian border. Beyond the farm’s serene green pastures, golden valleys stretched toward distant mountains crested by dark waves of evergreens. The Böhmerwald, or Bohemian Forest, served as more than a beautiful backdrop for the farm; it formed a natural barrier between Germany to the west and Austria to the south and had withstood invasion and attack for centuries. During the Nazi era, this locale was known as “the Bohemian bastion.” Among Germans, it was thought to be the safest place to ride out the war, least likely to be invaded from east or west. It was here that Gustav Rau had secreted the Lipizzaner, as well as the finest Arabians from Janów, including Witez. Even in the middle of a war, here, all was deceptively tranquil.
+
+Quiet villages dotted this part of Bohemia, each graced by a Catholic church with an onion-domed spire. Flanking each cluster of tidy whitewashed houses were well-kept farms growing crops that thrived in the region’s rich agricultural soil. But in the wake of Hitler’s annexation of the area following the Munich Agreement of 1938, its bucolic appearance was deceiving. Once a multicultural region where Czechs, Germans, and Jews lived side by side in peace, Bohemia, now called the Sudetenland, had turned into a firm cornerstone of Hitler’s Third Reich. When the Nazis annexed the area in September 1939, the local German-speaking population had lined the streets cheering to welcome Hitler’s forces. Local Czechs and Jews had either fled or been forcibly evicted. Those who remained had been transported to concentration camps. By 1942, when the first Lipizzaner arrived in Hostau, the local Nazi apparatus held a firm grip on the region, but Czech partisans also operated in the area, finding refuge in the hideaways offered by the Bohemian Forest. Though the border with Bavaria, Germany, was less than fifteen miles to the west, the mountainous barrier made it seem much more remote.
+
+The stud farm at Hostau, located next to the village of the same name, had been known for breeding cavalry horses long before Hitler’s time. The most prominent local landowners, the Trauttsmansdorff family, had historically served as imperial equerries for the Habsburg Crown. In addition to the main complex of stables adjacent to the village, there were pastures in three neighboring villages—the entire establishment covered fifteen hundred acres and could accommodate more than a thousand stallions, mares, and foals. All in all, it was more than twice as big as Alfred Vanderbilt’s showplace, Sagamore Farms, which Rau had visited in 1938.
+
+Rau had selected this expansive facility to put into motion the most exalted part of his grand plan. Throughout 1942, he had systematically transported all of the purebred Lipizzaner from the stud farms of Italy, Austria, and Yugoslavia to this sheltered location for safekeeping. He had also sent a personal emissary on a mission to purchase purebred Lipizzaner from wealthy noblemen who raised smaller strings of purebreds for private use. By the end of 1942, Rau had gathered almost every Lipizzaner in the world into a single location.
+
+Austrian-born Hitler’s goal, expressed in Mein Kampf, was to bring all of the German-speaking peoples of Central Europe, including Austria, into the fold of the Third Reich. Just as Hitler aimed to eliminate “impure strains” and combine the different Germanic groups into a single “Aryan race” of people, so Rau planned to use the science of selective breeding to erase the individual differences characterizing the several strains of purebred Lipizzaner that had emerged since the end of World War I and replace them with a single mold: pure white, imperial, identical, and ideally suited for military use. Like Hitler himself, the horses, once quintessentially Austrian, would be given a distinctly German stamp.</string>
+    <string name="openDrawer">0</string>
+    <string name="closeDrawer">1</string>
+</resources>

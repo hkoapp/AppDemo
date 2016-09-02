@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <tabs>
+
+        <tab
+            icon="@drawable/ic_home_black_24dp"
+            id="@+id/tab_home"
+            title="@string/tab_home" />
+        <tab
+            icon="@drawable/ic_weather_black_24dp"
+            id="@+id/tab_weather"
+            title="@string/tab_forecast" />
+        <tab
+            icon="@drawable/ic_warning_black_24dp"
+            id="@+id/tab_warning"
+            title="@string/tab_warning" />
+        <tab
+            icon="@drawable/ic_info_black_24dp"
+            id="@+id/tab_information"
+            title="@string/tab_information" />
+        <tab
+            icon="@drawable/ic_service_black_24dp"
+            id="@+id/tab_service"
+            title="@string/tab_service" />
+    </tabs>
+</PreferenceScreen>

@@ -1,0 +1,12 @@
+package hk.my.example.appdemo;
+
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+
+public class GowiseWebviewClient extends WebViewClient {
+    @Override
+    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+        view.loadUrl(url);
+        return true;
+    }
+}
