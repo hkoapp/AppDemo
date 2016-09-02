@@ -8,6 +8,6 @@ public class ServicePage extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.service_main);
+        setContentView(R.layout.activity_service);
     }
 }

@@ -25,7 +25,7 @@ public class SharedFunction {
         }
     }
 
-    public static String BottomBarAction(@IdRes int tabId) {
+    public static String BarAction(@IdRes int tabId) {
         String activity = "home";
         switch (tabId) {
             case R.id.tab_home:
@@ -43,9 +43,24 @@ public class SharedFunction {
             case R.id.tab_service:
                 activity = "service";
                 break;
+            case R.id.nav_gowise:
+                activity = "gowise_webview";
+                break;
         }
         Log.println(Log.ERROR, "Activity: ", activity);
         return activity;
     }
+
+    //    public static Intent NavigationAction(@IdRes int tabId, String url) {
+//        Intent intent = null;
+//        switch (tabId) {
+//            case R.id.nav_gowise:
+//                intent = new Intent(Intent.ACTION_VIEW);
+//                intent.setData(Uri.parse(url));
+//                break;
+//        }
+//
+//        return intent;
+//    }
 
 }

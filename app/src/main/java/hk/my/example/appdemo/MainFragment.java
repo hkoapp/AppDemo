@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 
 
 public class MainFragment extends Fragment {
@@ -14,6 +16,7 @@ public class MainFragment extends Fragment {
     private String inputFromActivity;
 
     private View view;
+    private WebView mWebView;
     private Callbacks callbacks;
 
     public MainFragment() {
@@ -49,22 +52,36 @@ public class MainFragment extends Fragment {
         // Inflate the layout for this fragment
         switch (inputFromActivity) {
             case "home":
-                view = inflater.inflate(R.layout.home_main, container, false);
+                view = inflater.inflate(R.layout.activity_home, container, false);
                 break;
             case "weather":
-                view = inflater.inflate(R.layout.forecast_main, container, false);
+                view = inflater.inflate(R.layout.activity_forecast, container, false);
                 break;
             case "warning":
-                view = inflater.inflate(R.layout.warning_main, container, false);
+                view = inflater.inflate(R.layout.activity_warning, container, false);
                 break;
             case "information":
-                view = inflater.inflate(R.layout.other_information_main, container, false);
+                view = inflater.inflate(R.layout.activity_other_information, container, false);
                 break;
             case "service":
-                view = inflater.inflate(R.layout.service_main, container, false);
+                view = inflater.inflate(R.layout.activity_service, container, false);
+                break;
+            case "gowise_webview":
+                view = inflater.inflate(R.layout.activity_gowise_webview, container, false);
+                mWebView = (WebView) view.findViewById(R.id.gowise_webview_content);
+                mWebView.setWebViewClient(new GowiseWebviewClient());
+                mWebView.setInitialScale(1);
+
+                //Enable JavaScript
+                WebSettings webSettings = mWebView.getSettings();
+                webSettings.setJavaScriptEnabled(true);
+                webSettings.setLoadWithOverviewMode(true);
+                webSettings.setUseWideViewPort(true);
+                mWebView.loadUrl("http://gowise2.hko.ccgo.hksarg");
+
                 break;
             default:
-                view = inflater.inflate(R.layout.home_main, container, false);
+                view = inflater.inflate(R.layout.activity_home, container, false);
                 break;
         }
         Log.println(Log.ERROR, "Input From: ", inputFromActivity);

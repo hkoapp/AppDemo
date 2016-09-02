@@ -95,7 +95,7 @@ public class ForecastPage extends AppCompatActivity implements MainFragment.Call
         bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelected(@IdRes int tabId) {
-                bbAction = sharedFunction.BottomBarAction(tabId);
+                bbAction = sharedFunction.BarAction(tabId);
                 Log.println(Log.ERROR, "Tab ID: ", tabId + "   Action: " + bbAction);
 //                getSupportFragmentManager().beginTransaction().replace(R.id.content_container, MainFragment.newInstance(bbAction)).commit();
                 Toast.makeText(getApplicationContext(), "Tab ID: " + tabId + "   Action: " + bbAction, Toast.LENGTH_SHORT).show();
@@ -105,7 +105,7 @@ public class ForecastPage extends AppCompatActivity implements MainFragment.Call
         bottomBar.setOnTabReselectListener(new OnTabReselectListener() {
             @Override
             public void onTabReSelected(@IdRes int tabId) {
-                bbAction = sharedFunction.BottomBarAction(tabId);
+                bbAction = sharedFunction.BarAction(tabId);
                 Log.println(Log.ERROR, "Unselected Tab ID: ", tabId + "   Action: " + bbAction);
                 Toast.makeText(getApplicationContext(), "Unselected Tab ID: " + tabId + "   Action: " + bbAction, Toast.LENGTH_SHORT).show();
             }
