@@ -76,6 +76,7 @@ public class HomePage extends AppCompatActivity implements MainFragment.Callback
                 // Set the selected menu item to checked
                 menuItem.setChecked(true);
                 checkedMenuItemId = menuItem.getItemId();
+                Toast.makeText(getApplicationContext(), "Checked ID: " + checkedMenuItemId, Toast.LENGTH_SHORT).show();
                 // Close the drawer
                 drawer.closeDrawers();
 
@@ -88,16 +89,20 @@ public class HomePage extends AppCompatActivity implements MainFragment.Callback
     protected void onStart() {
         super.onStart();
 
+        // Toolbar activity
         toolbar = (Toolbar) findViewById(R.id.ab_toolbar);
         setSupportActionBar(toolbar);
 
+        //ActionBar activity
         actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
+        //BottomBar activity
         bottomBar = (BottomBar) findViewById(R.id.bottom_bar);
+        // Bottom bar tab select listener
         bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelected(@IdRes int tabId) {
@@ -111,6 +116,7 @@ public class HomePage extends AppCompatActivity implements MainFragment.Callback
             }
         });
 
+        // Bottom bar tab re-select listener
         bottomBar.setOnTabReselectListener(new OnTabReselectListener() {
             @Override
             public void onTabReSelected(@IdRes int tabId) {
