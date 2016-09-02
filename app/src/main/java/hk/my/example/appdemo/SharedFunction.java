@@ -2,13 +2,18 @@ package hk.my.example.appdemo;
 
 import android.support.annotation.IdRes;
 import android.support.design.widget.NavigationView;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+
 public class SharedFunction {
 
-    public static void SetNavigationView(int checkedMenuItemId, int resourceID, NavigationView navigationView, Menu navigationViewMenu, MenuItem homeMenuItem, MenuItem checkedMenuItem) {
+    // Initiate navigation drawer
+    public static void SetNavigationView(int checkedMenuItemId, int resourceID, NavigationView navigationView) {
+        Menu navigationViewMenu;
+        MenuItem homeMenuItem;
+        MenuItem checkedMenuItem;
+
         if (navigationView != null) {
             navigationViewMenu = navigationView.getMenu();
 
@@ -25,6 +30,7 @@ public class SharedFunction {
         }
     }
 
+    // Identify the bar activity by tab ID
     public static String BarAction(@IdRes int tabId) {
         String activity = "home";
         switch (tabId) {
@@ -47,20 +53,7 @@ public class SharedFunction {
                 activity = "gowise_webview";
                 break;
         }
-        Log.println(Log.ERROR, "Activity: ", activity);
         return activity;
     }
-
-    //    public static Intent NavigationAction(@IdRes int tabId, String url) {
-//        Intent intent = null;
-//        switch (tabId) {
-//            case R.id.nav_gowise:
-//                intent = new Intent(Intent.ACTION_VIEW);
-//                intent.setData(Uri.parse(url));
-//                break;
-//        }
-//
-//        return intent;
-//    }
 
 }

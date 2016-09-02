@@ -42,74 +42,11 @@ public class ForecastPage extends AppCompatActivity implements MainFragment.Call
         super.onCreate(savedInstanceState);
         setContentView(R.layout.starting_page);
 
-        // Initiate the elements
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
-        bottomBar = (BottomBar) findViewById(R.id.bottom_bar);
-        tv = (TextView) findViewById(R.id.text1);
-
-        // content_container is a fragment element
-        if (findViewById(R.id.content_container) != null) {
-
-            if (savedInstanceState != null) {
-                // Restore the previously checked menu item
-                checkedMenuItemId = savedInstanceState.getInt(CHECKED_MENU_ITEM_ID);
-            } else {
-                // Return the FragmentManager(MainFragment) for interacting with fragments associated with this activity --> (content_container)
-                getSupportFragmentManager().beginTransaction().add(R.id.content_container, MainFragment.newInstance("weather")).commit();
-            }
-        }
-
-        // Initiate the navigation menu
-        resourceId = R.id.nav_gowise;
-        sharedFunction.SetNavigationView(checkedMenuItemId, resourceId, navigationView, navigationViewMenu, homeMenuItem, checkedMenuItem);
-
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem) {
-                // Set the selected menu item to checked
-                menuItem.setChecked(true);
-                checkedMenuItemId = menuItem.getItemId();
-                // Close the drawer
-                drawer.closeDrawers();
-
-                return true;
-            }
-        });
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-
-        toolbar = (Toolbar) findViewById(R.id.ab_toolbar);
-        setSupportActionBar(toolbar);
-
-        actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setHomeAsUpIndicator(R.drawable.ic_menu_black_24dp);
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
-
-        bottomBar = (BottomBar) findViewById(R.id.bottom_bar);
-        bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
-            @Override
-            public void onTabSelected(@IdRes int tabId) {
-                bbAction = sharedFunction.BarAction(tabId);
-                Log.println(Log.ERROR, "Tab ID: ", tabId + "   Action: " + bbAction);
-//                getSupportFragmentManager().beginTransaction().replace(R.id.content_container, MainFragment.newInstance(bbAction)).commit();
-                Toast.makeText(getApplicationContext(), "Tab ID: " + tabId + "   Action: " + bbAction, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        bottomBar.setOnTabReselectListener(new OnTabReselectListener() {
-            @Override
-            public void onTabReSelected(@IdRes int tabId) {
-                bbAction = sharedFunction.BarAction(tabId);
-                Log.println(Log.ERROR, "Unselected Tab ID: ", tabId + "   Action: " + bbAction);
-                Toast.makeText(getApplicationContext(), "Unselected Tab ID: " + tabId + "   Action: " + bbAction, Toast.LENGTH_SHORT).show();
-            }
-        });
 
     }
 

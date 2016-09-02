@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,8 +78,27 @@ public class MainFragment extends Fragment {
                 webSettings.setJavaScriptEnabled(true);
                 webSettings.setLoadWithOverviewMode(true);
                 webSettings.setUseWideViewPort(true);
-                mWebView.loadUrl("http://gowise2.hko.ccgo.hksarg");
+//                mWebView.loadUrl("http://gowise2.hko.ccgo.hksarg");
+                mWebView.loadUrl("http://www.yahoo.com.hk");
 
+                mWebView.setOnKeyListener(new View.OnKeyListener() {
+                    @Override
+                    public boolean onKey(View v, int keyCode, KeyEvent event) {
+                        if (event.getAction() == KeyEvent.ACTION_DOWN) {
+                            WebView webView = (WebView) v;
+
+                            switch (keyCode) {
+                                case KeyEvent.KEYCODE_BACK:
+                                    if (webView.canGoBack()) {
+                                        webView.goBack();
+                                        return true;
+                                    }
+                                    break;
+                            }
+                        }
+                        return false;
+                    }
+                });
                 break;
             default:
                 view = inflater.inflate(R.layout.activity_home, container, false);
@@ -105,7 +125,8 @@ public class MainFragment extends Fragment {
     }
 
     public interface Callbacks {
-        public void passDataToActivity(String data);
+        void passDataToActivity(String data);
     }
+
 
 }

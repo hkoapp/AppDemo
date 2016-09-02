@@ -11,13 +11,8 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabReselectListener;
@@ -27,22 +22,20 @@ import com.roughike.bottombar.OnTabSelectListener;
 public class HomePage extends AppCompatActivity implements MainFragment.Callbacks {
 
     private final String CHECKED_MENU_ITEM_ID = "HomePage.CHECKED_MENU_ITEM_ID";
+
+    protected SharedFunction sharedFunction;
+
     private String bbAction;
     private int checkedMenuItemId = 0;
     private int resourceId;
 
     private NavigationView navigationView;
-    private Menu navigationViewMenu;
-    private MenuItem homeMenuItem;
-    private MenuItem checkedMenuItem;
     private DrawerLayout drawer;
     private Toolbar toolbar;
     private ActionBar actionBar;
     private BottomBar bottomBar;
     private FragmentManager fragmentManager;
     private FragmentTransaction fragmentTransaction;
-
-    protected SharedFunction sharedFunction;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -77,9 +70,9 @@ public class HomePage extends AppCompatActivity implements MainFragment.Callback
 
         // Initiate the navigation menu
         resourceId = R.id.nav_gowise;
-        sharedFunction.SetNavigationView(checkedMenuItemId, resourceId, navigationView, navigationViewMenu, homeMenuItem, checkedMenuItem);
+        sharedFunction.SetNavigationView(checkedMenuItemId, resourceId, navigationView);
 
-        // Set the navigation listener
+        // Set up the navigation listener
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
@@ -88,7 +81,7 @@ public class HomePage extends AppCompatActivity implements MainFragment.Callback
                 checkedMenuItemId = menuItem.getItemId();
 
                 bbAction = sharedFunction.BarAction(checkedMenuItemId);
-                Log.println(Log.ERROR, "Tab ID: ", checkedMenuItemId + "   Action: " + bbAction);
+//                Log.println(Log.ERROR, "Tab ID: ", checkedMenuItemId + "   Action: " + bbAction);
                 fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.content_container, MainFragment.newInstance(bbAction));
                 fragmentTransaction.commit();
@@ -113,17 +106,18 @@ public class HomePage extends AppCompatActivity implements MainFragment.Callback
 
         // BottomBar activity
         bottomBar = (BottomBar) findViewById(R.id.bottom_bar);
+
         // Bottom bar tab select listener
         bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
             @Override
             public void onTabSelected(@IdRes int tabId) {
-                Log.println(Log.ERROR, "Tab ID before: ", tabId + "   Action: " + bbAction);
+//                Log.println(Log.ERROR, "Tab ID before: ", tabId + "   Action: " + bbAction);
                 bbAction = sharedFunction.BarAction(tabId);
-                Log.println(Log.ERROR, "Tab ID after: ", tabId + "   Action: " + bbAction);
+//                Log.println(Log.ERROR, "Tab ID after: ", tabId + "   Action: " + bbAction);
                 fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.content_container, MainFragment.newInstance(bbAction));
                 fragmentTransaction.commit();
-                Toast.makeText(getApplicationContext(), "Tab ID: " + tabId + "   Action: " + bbAction, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "Tab ID: " + tabId + "   Action: " + bbAction, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -132,11 +126,11 @@ public class HomePage extends AppCompatActivity implements MainFragment.Callback
             @Override
             public void onTabReSelected(@IdRes int tabId) {
                 bbAction = sharedFunction.BarAction(tabId);
-                Log.println(Log.ERROR, "Tab ID after: ", tabId + "   Action: " + bbAction);
+//                Log.println(Log.ERROR, "Tab ID after: ", tabId + "   Action: " + bbAction);
                 fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.content_container, MainFragment.newInstance(bbAction));
                 fragmentTransaction.commit();
-                Toast.makeText(getApplicationContext(), "Unselected Tab ID: " + tabId + "   Action: " + bbAction, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "Unselected Tab ID: " + tabId + "   Action: " + bbAction, Toast.LENGTH_SHORT).show();
             }
         });
 
